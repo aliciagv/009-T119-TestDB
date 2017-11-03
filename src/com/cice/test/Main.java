@@ -22,24 +22,25 @@ public class Main {
      */
     public static void main(String[] args) {
        
-        String insert=" INSERT INTO test(nombre,apellido) values ('Alicia','Gutiérrez')";
+     //   String insert=" INSERT INTO test(nombre,apellido) values ('Alicia','Gutiérrez')";
         Manager manager= new Manager();
-        manager.setPort("3306");
-        manager.setPass("rali");
-        manager.setUrl("jdbc:mysql://"+manager.getHost()+":"+manager.getPort()+ "/"+manager.getDatabase()+"?useSSL=false");
+        manager.setPort("8889");
+       
         
-        manager.executeUpdate(insert);
+       // manager.executeUpdate(insert);
+        
         
         String  select ="Select * from test";
         ResultSet busqueda=manager.executeSelect(select);
         try {
             while (busqueda.next()){
-                System.out.println(busqueda.getString("nombre"));
+                System.out.println(busqueda.getString("nombre") + " " + busqueda.getString("apellido"));
+                
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
-        
+       
     }
     
 }
