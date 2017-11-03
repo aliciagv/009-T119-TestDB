@@ -24,6 +24,9 @@ public class Main {
        
         String insert=" INSERT INTO test(nombre,apellido) values ('Alicia','Gutiérrez')";
         Manager manager= new Manager();
+        manager.setPort("3306");
+        manager.setPass("rali");
+        manager.setUrl("jdbc:mysql://"+manager.getHost()+":"+manager.getPort()+ "/"+manager.getDatabase()+"?useSSL=false");
         
         manager.executeUpdate(insert);
         
